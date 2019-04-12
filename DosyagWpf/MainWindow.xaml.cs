@@ -20,7 +20,7 @@ namespace DosyagWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Model DataModel;
+        public Model DataModel; //КРИВОЙ ЗАКОС ПОД MVVM
        
         public MainWindow()
         {
@@ -37,16 +37,24 @@ namespace DosyagWpf
         // добавление
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "", "Тумблер", 0, 0, 0)); //Номера криво назначаются... бывают дубли но это ерунда
+        }
 
-        }
-        // редактирование
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-        }
         // удаление
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            DataModel.OUs.Remove(DataModel.SelectedOU);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("А вот тут мы получить должны данные из NX !"); // САБЖ.
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("А тут мы выгрузим данные куда-нибудь например в CSV. Ну это мы сами сделаем - как нам нравится"); // САБЖ.
+
+        }
     }
 }

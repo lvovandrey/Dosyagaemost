@@ -3,11 +3,11 @@ using System.Windows.Data;
 
 namespace DosyagWpf
 {
-    public class PhoneBookEntry
+    public class OUType
     {
         public string Name { get; set; }
 
-        public PhoneBookEntry(string name)
+        public OUType(string name)
         {
             Name = name;
         }
@@ -20,7 +20,7 @@ namespace DosyagWpf
 
     public class OU
     {
-        public string Type { get; set; }
+
         public string Name { get; set; }
         public int Number { get; set; }
 
@@ -30,33 +30,33 @@ namespace DosyagWpf
         
         public double FDLight
         {
-            get { return 50; }
+            get { return 50; } // Запрашиваем данные через DLL - позже сделаем
             set { FDLight = value; }
         }
         public double FDFull
         {
-            get { return 80; }
+            get { return 80; }// Запрашиваем данные через DLL - позже сделаем
             set { FDFull = value; }
         }
         public double FDUltimate
         {
-            get { return 95; }
+            get { return 95; }// Запрашиваем данные через DLL - позже сделаем
             set { FDUltimate = value; }
         }
 
         public double FDLightSpec
         {
-            get { return 33; }
+            get { return 33; }// Запрашиваем данные через DLL - позже сделаем
             set { FDLightSpec = value; }
         }
         public double FDFullSpec
         {
-            get { return 66; }
+            get { return 66; }// Запрашиваем данные через DLL - позже сделаем
             set { FDFullSpec = value; }
         }
         public double FDUltimateSpec
         {
-            get { return 92; }
+            get { return 92; }// Запрашиваем данные через DLL - позже сделаем
             set { FDUltimateSpec = value; }
         }
 
@@ -70,27 +70,30 @@ namespace DosyagWpf
             Z = z;
 
             
-                List<PhoneBookEntry> list = new List<PhoneBookEntry>();
-                list.Add(new PhoneBookEntry("test"));
-                list.Add(new PhoneBookEntry("test2"));
-                _phonebookEntries = new CollectionView(list);
+                List<OUType> list = new List<OUType>();
+                list.Add(new OUType("Кнопка"));
+                list.Add(new OUType("Рычаг"));
+                list.Add(new OUType("Тумблер"));
+
+            _outypes = new CollectionView(list);
+
          }
 
-        private readonly CollectionView _phonebookEntries;
-        private string _phonebookEntry;
+        private readonly CollectionView _outypes;
+        private string _type;
 
-        public CollectionView PhonebookEntries
+        public CollectionView OUTypes
         {
-            get { return _phonebookEntries; }
+            get { return _outypes; }
         }
 
-        public string PhonebookEntry
+        public string Type
         {
-            get { return _phonebookEntry; }
+            get { return _type; }
             set
             {
-                if (_phonebookEntry == value) return;
-                _phonebookEntry = value;
+                if (_type == value) return;
+                _type = value;
             }
         }
     }
