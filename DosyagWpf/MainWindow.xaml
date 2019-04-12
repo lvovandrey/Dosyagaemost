@@ -1,0 +1,102 @@
+﻿<Window x:Class="DosyagWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DosyagWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>       
+        
+      
+        
+        <ListBox x:Name="levelsList" ItemsSource="{Binding OUs}" SelectedItem="{Binding SelectedOU, UpdateSourceTrigger=PropertyChanged}"  >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="100"/>
+
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Number}" Margin="5" Grid.Column="0"/>
+                        <TextBlock Text="{Binding Name}" FontSize="12" Margin="5" Grid.Column="1"/>
+                        <TextBlock Text="{Binding Type}" FontSize="12" Margin="5" Grid.Column="2"/>
+                        <TextBlock Text="{Binding X}" FontSize="12" Margin="5" Grid.Column="3"/>
+                        <TextBlock Text="{Binding Y}" FontSize="12" Margin="5" Grid.Column="4"/>
+                        <TextBlock Text="{Binding Z}" FontSize="12" Margin="5" Grid.Column="5"/>
+
+                        <TextBlock Text="{Binding PhonebookEntry}" FontSize="12" Margin="5" Grid.Column="6"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Добавить" Margin="10" Click="Add_Click" />
+            <Button Content="Изменить" Margin="10" Click="Edit_Click"  />
+            <Button Content="Удалить" Margin="10" Click="Delete_Click"  />
+            <Label Content="{Binding Test}" Width="40" Background="#FF52DDDD"/>
+        </StackPanel>
+
+          <Label Content="{Binding Test, UpdateSourceTrigger=PropertyChanged}" Height="40" 
+               Background ="Coral" Grid.Column="1" Grid.Row="1"/>
+
+            <Grid DataContext="{Binding SelectedOU}" Grid.Column="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Content="Измерить XYZ" Grid.Column="1"/>
+            <Label Content="Название" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="X = " Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="Y = " Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="Z = " Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="Тип ОУ = " Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding X}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Y}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Z}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" SelectedIndex="1">
+                <TextBlock>Рычаг</TextBlock>
+                <TextBlock>Кнопка</TextBlock>
+                <TextBlock>Тумблер</TextBlock>
+            </ComboBox>
+
+            <ComboBox ItemsSource="{Binding Path=PhonebookEntries}" Grid.Row="8"
+                  DisplayMemberPath="Name"
+                  SelectedValuePath="Name"
+                  SelectedValue="{Binding Path=PhonebookEntry}" />
+
+        </Grid>
+    
+    </Grid>
+</Window>
