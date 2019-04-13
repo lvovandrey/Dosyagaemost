@@ -48,7 +48,7 @@ namespace DosyagWpf
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("А вот тут мы получить должны данные из NX !"); // САБЖ.
+            MessageBox.Show("Результат из DLL " + CppLib.SomeFunc(10).ToString()); // САБЖ.
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
