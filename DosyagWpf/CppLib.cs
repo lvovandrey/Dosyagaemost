@@ -9,8 +9,34 @@ namespace DosyagWpf
 {
     class CppLib
     {
-        [return: MarshalAs(UnmanagedType.I4)]
+
+        [return: MarshalAs(UnmanagedType.R8)]
         [DllImport("DosyagDll.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SomeFunc([In]int a);
+        public static extern double Dosyagaemost([In]int FDtype, [In]int OUtype, [In]bool Spec, [In]double x, [In]double y, [In]double z);
+
+        [return: MarshalAs(UnmanagedType.R8)]
+        [DllImport("DosyagDll.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double alpha([In]double x, [In]double y, [In]double z);
+
+        [return: MarshalAs(UnmanagedType.R8)]
+        [DllImport("DosyagDll.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double dist([In]double x, [In]double y, [In]double z);
+
+        [return: MarshalAs(UnmanagedType.R8)]
+        [DllImport("DosyagDll.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double h([In]double x, [In]double y, [In]double z);
+
+        [return: MarshalAs(UnmanagedType.R8)]
+        [DllImport("DosyagDll.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double x([In]double alpha, [In]double dist, [In]double height);
+
+        [return: MarshalAs(UnmanagedType.R8)]
+        [DllImport("DosyagDll.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double y([In]double alpha, [In]double dist, [In]double height);
+
+        [return: MarshalAs(UnmanagedType.R8)]
+        [DllImport("DosyagDll.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double z([In]double alpha, [In]double dist, [In]double height);
+
     }
 }

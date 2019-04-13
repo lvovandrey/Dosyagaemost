@@ -28,9 +28,12 @@ namespace DosyagWpf
             
 
             DataModel = new Model();
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count()+1, "ВКЛ-Выкл", "Кнопка", 1134, 2311, 1123));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1,"Щелк-Чик", "Тумблер", 1231, 121, 1111323));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Пым-Пам", "Рычаг", 11241, 234411, 1100023));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "ВКЛ-Выкл", "Кнопка", 555, 555, 777));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Щелк-Чик", "Тумблер", 333, 123, 323));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Пым-Пам", "Рычаг", 555, 411, 463));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "ВКЛ-Выкл", "Кнопка", 555, 555, 777));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Щелк-Чик", "Тумблер", 333, 123, 323));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Пым-Пам", "Рычаг", 555, 411, 463));
             DataModel.SelectedOU = DataModel.OUs.First();
             this.DataContext = DataModel;
         }
@@ -48,13 +51,19 @@ namespace DosyagWpf
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Результат из DLL " + CppLib.SomeFunc(10).ToString()); // САБЖ.
+            MessageBox.Show("Результат из DLL   Dosyagaemost  " + CppLib.Dosyagaemost(1,1,true,567.33, 765.2, 456.21).ToString()); // САБЖ.
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("А тут мы выгрузим данные куда-нибудь например в CSV. Ну это мы сами сделаем - как нам нравится"); // САБЖ.
 
+        }
+
+        private void levelsList_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            if (e.ExtentHeightChange > 0.0)
+                ((ScrollViewer)e.OriginalSource).ScrollToEnd();
         }
     }
 }

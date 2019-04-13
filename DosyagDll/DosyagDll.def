@@ -1,3 +1,9 @@
 LIBRARY "DosyagDll"
 EXPORTS
-SomeFunc
+Dosyagaemost
+alpha
+dist
+h
+x
+y
+z

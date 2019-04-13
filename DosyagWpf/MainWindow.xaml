@@ -6,152 +6,164 @@
         xmlns:local="clr-namespace:DosyagWpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="1200">
+    <Window.Resources>
+        <local:HeightListConverter x:Key="heightListConverter" />
+    </Window.Resources>
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Name="RowMain1"/>
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
 
-        <StackPanel>
-        <Grid  Margin="4,0,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Name="Col1" Width="25"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col2" Width="180"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col3" Width="60"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col4" Width="50"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col5" Width="50"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col6" Width="50"/>
-                    <ColumnDefinition Width="Auto"/>
-                
-                    <ColumnDefinition Name="Col7" Width="50"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col8" Width="50"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col9" Width="70"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col10" Width="50"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col11" Width="50"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Name="Col12" Width="70"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="№" VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="0" Grid.RowSpan="2"/>
-                <TextBlock Text="Название" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="2" Grid.RowSpan="2"/>
-                <TextBlock Text="Тип" FontSize="12" VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="4" Grid.RowSpan="2"/>
-                <TextBlock Text="X" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="6" Grid.RowSpan="2"/>
-                <TextBlock Text="Y" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="8" Grid.RowSpan="2"/>
-                <TextBlock Text="Z" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="10" Grid.RowSpan="2"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="10"> 
 
-                <TextBlock Text="Досягаемость"  FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="12" Grid.ColumnSpan="5"  />
+            <StackPanel>
+                <Grid  Margin="4,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Name="Col1" Width="25"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col2" Width="180"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col3" Width="60"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col4" Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col5" Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col6" Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
 
-                <TextBlock Text="Досягаемость в спецснаряжении"  FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="18" Grid.ColumnSpan="5"  />
-            
-                <TextBlock Text="Легкая" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="12" Grid.Row="1"/>
-                <TextBlock Text="Полная" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="14" Grid.Row="1"/>
-                <TextBlock Text="Предельная" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="16" Grid.Row="1"/>
-                <TextBlock Text="Легкая" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="18" Grid.Row="1"/>
-                <TextBlock Text="Полная" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="20" Grid.Row="1"/>
-                <TextBlock Text="Предельная" FontSize="12"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="22" Grid.Row="1"/>
+                        <ColumnDefinition Name="Col7" Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col8" Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col9" Width="70"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col10" Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col11" Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Name="Col12" Width="70"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="№" VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="0" Grid.RowSpan="2"/>
+                    <TextBlock Text="Название" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="2" Grid.RowSpan="2"/>
+                    <TextBlock Text="Тип" FontSize="10" VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="4" Grid.RowSpan="2"/>
+                    <TextBlock Text="Alpha" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="6" Grid.RowSpan="2"/>
+                    <TextBlock Text="Dist" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="8" Grid.RowSpan="2"/>
+                    <TextBlock Text="H" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="10" Grid.RowSpan="2"/>
 
-                <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
+                    <TextBlock Text="Досягаемость"  FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="12" Grid.ColumnSpan="5"  />
+
+                    <TextBlock Text="Досягаемость в спецснаряжении"  FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="18" Grid.ColumnSpan="5"  />
+
+                    <TextBlock Text="Легкая" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="12" Grid.Row="1"/>
+                    <TextBlock Text="Полная" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="14" Grid.Row="1"/>
+                    <TextBlock Text="Предельная" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="16" Grid.Row="1"/>
+                    <TextBlock Text="Легкая" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="18" Grid.Row="1"/>
+                    <TextBlock Text="Полная" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="20" Grid.Row="1"/>
+                    <TextBlock Text="Предельная" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment ="Center" Grid.Column="22" Grid.Row="1"/>
+
+                    <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                           Grid.RowSpan="2"/>
-                <GridSplitter Grid.Column="3" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="3" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch"
                               Grid.RowSpan="2"/>
-                <GridSplitter Grid.Column="5" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="5" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                               Grid.RowSpan="2"/>
-                <GridSplitter Grid.Column="7" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="7" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                               Grid.RowSpan="2"/>
-                <GridSplitter Grid.Column="9" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="9" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                               Grid.RowSpan="2"/>
-                <GridSplitter Grid.Column="11" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="11" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                               Grid.RowSpan="2"/>
-                <GridSplitter Grid.Column="13" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="13" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                               Grid.Row="1"/>
-                <GridSplitter Grid.Column="15" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="15" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                               Grid.Row="1"/>
-                <GridSplitter Grid.Column="17" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="17" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                               Grid.Row="1"/>
-                <GridSplitter Grid.Column="19" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="19" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                               Grid.Row="1"/>
-                <GridSplitter Grid.Column="21" ShowsPreview="False" Width="3"
+                    <GridSplitter Grid.Column="21" ShowsPreview="False" Width="3"
              HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                               Grid.Row="1"/>
 
-        </Grid>
-        <ListBox x:Name="levelsList" ItemsSource="{Binding OUs}" SelectedItem="{Binding SelectedOU, UpdateSourceTrigger=PropertyChanged}"  >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid ShowGridLines="True">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{Binding ElementName=Col1, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col2, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col3, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col4, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                            <ColumnDefinition Width="{Binding ElementName=Col5, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col6, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col7, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col8, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col9, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col10, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col11, Path=Width}"/>
-                                <ColumnDefinition Width="3"/>
-                                <ColumnDefinition Width="{Binding ElementName=Col12, Path=Width}"/>
+                </Grid>
+                <ListBox x:Name="levelsList" ItemsSource="{Binding OUs}" Height="300" 
+                         SelectedItem="{Binding SelectedOU, UpdateSourceTrigger=PropertyChanged}" 
+                         ScrollViewer.VerticalScrollBarVisibility="Visible" VerticalContentAlignment="Top" ScrollViewer.CanContentScroll="False" UseLayoutRounding="True" Grid.IsSharedSizeScope="True" >
+                    <!--"{Binding ElementName=RowMain1, Path=ActualHeight, Converter={StaticResource heightListConverter}}"-->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="{Binding ElementName=Col1, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col2, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col3, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col4, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col5, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col6, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+
+                                    <ColumnDefinition Width="{Binding ElementName=Col7, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col8, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col9, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col10, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col11, Path=Width}"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="{Binding ElementName=Col12, Path=Width}"/>
 
 
-                            </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Number}" Margin="5" Grid.Column="0"/>
-                        <TextBlock Text="{Binding Name}" FontSize="12" Margin="5" Grid.Column="2"/>
-                        <TextBlock Text="{Binding Type}" FontSize="12" Margin="5" Grid.Column="4"/>
-                        <TextBlock Text="{Binding X}" FontSize="12" Margin="5" Grid.Column="6"/>
-                        <TextBlock Text="{Binding Y}" FontSize="12" Margin="5" Grid.Column="8"/>
-                        <TextBlock Text="{Binding Z}" FontSize="12" Margin="5" Grid.Column="10"/>
 
-                        <TextBlock Text="{Binding FDLight}" FontSize="12" Margin="5" Grid.Column="12"/>
-                        <TextBlock Text="{Binding FDFull}" FontSize="12" Margin="5" Grid.Column="14"/>
-                        <TextBlock Text="{Binding FDUltimate}" FontSize="12" Margin="5" Grid.Column="16"/>
-                            <TextBlock Text="{Binding FDLightSpec}" FontSize="12" Margin="5" Grid.Column="18"/>
-                            <TextBlock Text="{Binding FDFullSpec}" FontSize="12" Margin="5" Grid.Column="20"/>
-                            <TextBlock Text="{Binding FDUltimateSpec}" FontSize="12" Margin="5" Grid.Column="22"/>
-                        </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        </StackPanel>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="0"/>
+                                <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Margin="5" Grid.Column="2"/>
+                                <TextBlock Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Margin="5" Grid.Column="4"/>
+                                <TextBlock Text="{Binding Alpha, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Margin="5" Grid.Column="6"/>
+                                <TextBlock Text="{Binding Dist, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Margin="5" Grid.Column="8"/>
+                                <TextBlock Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Margin="5" Grid.Column="10"/>
+
+                                <TextBlock Text="{Binding FDLight, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P} }" FontSize="10" Margin="5" Grid.Column="12"/>
+                                <TextBlock Text="{Binding FDFull, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P}}" FontSize="10" Margin="5" Grid.Column="14"/>
+                                <TextBlock Text="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P}}" FontSize="10" Margin="5" Grid.Column="16"/>
+                                <TextBlock Text="{Binding FDLightSpec, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P}}" FontSize="10" Margin="5" Grid.Column="18"/>
+                                <TextBlock Text="{Binding FDFullSpec, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P}}" FontSize="10" Margin="5" Grid.Column="20"/>
+                                <TextBlock Text="{Binding FDUltimateSpec, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P}}" FontSize="10" Margin="5" Grid.Column="22"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Добавить" Margin="10" Click="Add_Click" />
             <Button Content="Удалить" Margin="10" Click="Delete_Click"  />
@@ -160,9 +172,9 @@
 
 
 
-            <Grid DataContext="{Binding SelectedOU}" Grid.Column="1" >
+            <Grid DataContext="{Binding SelectedOU}" Grid.Column="1" Margin="10" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="60"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -179,20 +191,28 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="Измерить XYZ" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center"  Margin="3" Grid.ColumnSpan="2" Click="Button_Click"/>
+            <Button Content="Измерить XYZ" Grid.Column="0" Grid.Row="11" HorizontalAlignment="Center"  Margin="3" Grid.ColumnSpan="2" Click="Button_Click"/>
             <Label Content="Название" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-            <Label Content="X = " Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-            <Label Content="Y = " Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-            <Label Content="Z = " Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-            <Label Content="Тип ОУ = " Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="Alpha = " Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="Dist = " Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="H = " Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="X = " Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="Y = " Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="Z = " Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Content="Тип ОУ = " Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
 
             <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding X}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding Y}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding Z}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+
+            <TextBox Text="{Binding Alpha,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Dist, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Height, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                
+            <TextBox Text="{Binding X, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Y, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Z, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
 
 
-            <ComboBox ItemsSource="{Binding Path=OUTypes}" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+            <ComboBox ItemsSource="{Binding Path=OUTypes}" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
                   DisplayMemberPath="Name"
                   SelectedValuePath="Name"
                   SelectedValue="{Binding Path=Type}" />
