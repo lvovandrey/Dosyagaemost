@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using CsvHelper.Configuration.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Data;
@@ -22,48 +23,50 @@ namespace DosyagWpf
 
     public class OU: INotifyPropertyChanged
     {
-        string _name { get; set; }
+        [Name("№")]
         int _number { get; set; }
+        [Name("Название ОУ")]
+        string _name { get; set; }
+        [Name("Тип ОУ")]
+        string _type { get; set; }
 
+        [Name("Угол отведения")]
+        double _Alpha { get; set; }
+        [Name("Дистанция")]
+        double _Dist { get; set; }
+        [Name("Высота")]
+        double _Height { get; set; }
+
+        [Name("ФД легкая")]
+        double _FDLight { get; set; }
+        [Name("ФД полная")]
+        double _FDFull { get; set; }
+        [Name("ФД предельная")]
+        double _FDUltimate { get; set; }
+        [Name("ФД легкая в спецснар.")]
+        double _FDLightSpec { get; set; }
+        [Name("ФД полная в спецснар.")]
+        double _FDFullSpec { get; set; }
+        [Name("ФД предельная в спецснар.")]
+        double _FDUltimateSpec { get; set; }
+
+        [Name("X")]
         double _x { get; set; }
+        [Name("Y")]
         double _y { get; set; }
+        [Name("Z")]
         double _z { get; set; }
 
-        double _FDLight { get; set; }
-        double _FDFull { get; set; }
-        double _FDUltimate { get; set; }
-        double _FDLightSpec { get; set; }
-        double _FDFullSpec { get; set; }
-        double _FDUltimateSpec { get; set; }
-        string _type { get; set; }
+        [Ignore]
         int _IntType { get; set; }
 
 
-        void UpdateFD()
-        {
-            //OnPropertyChanged("Name");
-            //OnPropertyChanged("Number");
-            //OnPropertyChanged("X");
-            //OnPropertyChanged("Y");
-            //OnPropertyChanged("Z");
-            OnPropertyChanged("FDLight");
-            OnPropertyChanged("FDFull");
-            OnPropertyChanged("FDUltimate");
-            OnPropertyChanged("FDLightSpec");
-            OnPropertyChanged("FDFullSpec");
-            OnPropertyChanged("FDUltimateSpec");
-            //OnPropertyChanged("Type");
-            //OnPropertyChanged("IntType");
-        }
 
-
-
-
-
-
+        [Ignore]
         public string Name { get { return _name; } set { _name = value; OnPropertyChanged("Name"); } }
+        [Ignore]
         public int Number { get { return _number; } set { _number = value; OnPropertyChanged("Number"); } }
-
+        [Ignore]
         public double X
         {
             get
@@ -78,6 +81,7 @@ namespace DosyagWpf
                 UpdateARH();
             }
         }
+        [Ignore]
         public double Y
         {
             get
@@ -92,6 +96,7 @@ namespace DosyagWpf
                 UpdateARH();
             }
         }
+        [Ignore]
         public double Z
         {
             get
@@ -107,23 +112,7 @@ namespace DosyagWpf
             }
         }
 
-        void UpdateXYZ()
-        {
-            OnPropertyChanged("X");
-            OnPropertyChanged("Y");
-            OnPropertyChanged("Z");
-        }
-
-
-        void UpdateARH()
-        {
-            OnPropertyChanged("Alpha");
-            OnPropertyChanged("Dist");
-            OnPropertyChanged("Height");
-        }
-
-        double _Alpha { get; set; }
-
+        [Ignore]
         public double Alpha
         {
             get
@@ -142,9 +131,7 @@ namespace DosyagWpf
 
             }
         }
-
-        double _Dist { get; set; }
-
+        [Ignore]
         public double Dist
         {
             get
@@ -162,9 +149,7 @@ namespace DosyagWpf
                 OnPropertyChanged("Dist");
             }
         }
-
-        double _Height { get; set; }
-
+        [Ignore]
         public double Height
         {
             get
@@ -183,9 +168,7 @@ namespace DosyagWpf
             }
         }
 
-
-
-
+        [Ignore]
         public double FDLight
         {
             get
@@ -199,6 +182,7 @@ namespace DosyagWpf
                 OnPropertyChanged("FDLight");
             }
         }
+        [Ignore]
         public double FDLightSpec
         {
             get
@@ -212,8 +196,7 @@ namespace DosyagWpf
                 OnPropertyChanged("FDLightSpec");
             }
         }
-
-
+        [Ignore]
         public double FDFull
         {
             get
@@ -227,6 +210,7 @@ namespace DosyagWpf
                 OnPropertyChanged("FDFull");
             }
         }
+        [Ignore]
         public double FDFullSpec
         {
             get
@@ -240,11 +224,7 @@ namespace DosyagWpf
                 OnPropertyChanged("FDFullSpec");
             }
         }
-
-
-
-
-
+        [Ignore]
         public double FDUltimate
         {
             get
@@ -258,6 +238,7 @@ namespace DosyagWpf
                 OnPropertyChanged("FDUltimate");
             }
         }
+        [Ignore]
         public double FDUltimateSpec
         {
             get
@@ -271,38 +252,7 @@ namespace DosyagWpf
                 OnPropertyChanged("FDUltimateSpec");
             }
         }
-
-
-
-
-
-
-
-        public OU(int number, string name, string OUtype, double x, double y, double z)
-        {
-            Number = number;
-            Name = name;
-            Type = OUtype;
-            X = x;
-            Y = y;
-            Z = z;
-
-            
-                List<OUType> list = new List<OUType>();
-                list.Add(new OUType("Кнопка"));
-                list.Add(new OUType("Рычаг"));
-                list.Add(new OUType("Тумблер"));
-
-            _outypes = new CollectionView(list);
-
-         }
-
-        private readonly CollectionView _outypes;
-        public CollectionView OUTypes
-        {
-            get { return _outypes; }
-        }
-
+        [Ignore]
         public int IntType
         {
             get
@@ -327,7 +277,7 @@ namespace DosyagWpf
                 UpdateFD();
             }
         }
-
+        [Ignore]
         public string Type
         {
             get { return _type; }
@@ -339,7 +289,65 @@ namespace DosyagWpf
                 OnPropertyChanged("Type");
             }
         }
+        [Ignore]
+        private readonly CollectionView _outypes;
+        [Ignore]
+        public CollectionView OUTypes
+        {
+            get { return _outypes; }
+        }
 
+
+        public OU(int number, string name, string OUtype, double x, double y, double z)
+        {
+            Number = number;
+            Name = name;
+            Type = OUtype;
+            X = x;
+            Y = y;
+            Z = z;
+
+            
+                List<OUType> list = new List<OUType>();
+                list.Add(new OUType("Кнопка"));
+                list.Add(new OUType("Рычаг"));
+                list.Add(new OUType("Тумблер"));
+
+            _outypes = new CollectionView(list);
+
+         }
+
+
+
+
+        void UpdateFD()
+        {
+            //OnPropertyChanged("Name");
+            //OnPropertyChanged("Number");
+            //OnPropertyChanged("X");
+            //OnPropertyChanged("Y");
+            //OnPropertyChanged("Z");
+            OnPropertyChanged("FDLight");
+            OnPropertyChanged("FDFull");
+            OnPropertyChanged("FDUltimate");
+            OnPropertyChanged("FDLightSpec");
+            OnPropertyChanged("FDFullSpec");
+            OnPropertyChanged("FDUltimateSpec");
+            //OnPropertyChanged("Type");
+            //OnPropertyChanged("IntType");
+        }
+        void UpdateXYZ()
+        {
+            OnPropertyChanged("X");
+            OnPropertyChanged("Y");
+            OnPropertyChanged("Z");
+        }
+        void UpdateARH()
+        {
+            OnPropertyChanged("Alpha");
+            OnPropertyChanged("Dist");
+            OnPropertyChanged("Height");
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

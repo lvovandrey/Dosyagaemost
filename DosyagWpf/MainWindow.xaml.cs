@@ -51,13 +51,12 @@ namespace DosyagWpf
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Результат из DLL   Dosyagaemost  " + CppLib.Dosyagaemost(1,1,true,567.33, 765.2, 456.21).ToString()); // САБЖ.
+            MessageBox.Show("Тут надо получить данные из NX и вставить их в соответствующие поля");
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("А тут мы выгрузим данные куда-нибудь например в CSV. Ну это мы сами сделаем - как нам нравится"); // САБЖ.
-
+            CsvWrite.Write(DataModel.OUs);
         }
 
         private void levelsList_ScrollChanged(object sender, ScrollChangedEventArgs e)
