@@ -204,7 +204,7 @@ namespace DosyagWpf
         {
             get
             {
-                _FDFull = CppLib.Dosyagaemost(1, this.IntType, false, X, Y, Z);
+                _FDFull = CppLib.Dosyagaemost(2, this.IntType, false, X, Y, Z);
                 return _FDFull;
             } // Запрашиваем данные через DLL - позже сделаем
             set
@@ -218,7 +218,7 @@ namespace DosyagWpf
         {
             get
             {
-                _FDFullSpec = CppLib.Dosyagaemost(1, this.IntType, true, X, Y, Z);
+                _FDFullSpec = CppLib.Dosyagaemost(2, this.IntType, true, X, Y, Z);
                 return _FDFullSpec;
             } // Запрашиваем данные через DLL - позже сделаем
             set
@@ -232,7 +232,7 @@ namespace DosyagWpf
         {
             get
             {
-                _FDUltimate = CppLib.Dosyagaemost(1, this.IntType, false, X, Y, Z);
+                _FDUltimate = CppLib.Dosyagaemost(3, this.IntType, false, X, Y, Z);
                 return _FDUltimate;
             } // Запрашиваем данные через DLL - позже сделаем
             set
@@ -246,7 +246,7 @@ namespace DosyagWpf
         {
             get
             {
-                _FDUltimateSpec = CppLib.Dosyagaemost(1, this.IntType, true, X, Y, Z);
+                _FDUltimateSpec = CppLib.Dosyagaemost(3, this.IntType, true, X, Y, Z);
                 return _FDUltimateSpec;
             } // Запрашиваем данные через DLL - позже сделаем
             set
