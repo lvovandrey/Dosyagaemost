@@ -122,13 +122,14 @@ namespace DosyagWpf
             set
             {
                 _Alpha = value;
-                _x = CppLib.x(_Alpha, _Dist, _Height);
-                _y = CppLib.y(_Alpha, _Dist, _Height);
-                _z = CppLib.z(_Alpha, _Dist, _Height);
+                
+                _x = CppLib.x(value, _Dist, _Height);
+                _y = CppLib.y(value, _Dist, _Height);
+                _z = CppLib.z(value, _Dist, _Height);
+
+                OnPropertyChanged("Alpha");
                 UpdateXYZ();
                 UpdateFD();
-                OnPropertyChanged("Alpha");
-
             }
         }
         [Ignore]
@@ -141,12 +142,13 @@ namespace DosyagWpf
             set
             {
                 _Dist = value;
-                _x = CppLib.x(_Alpha, _Dist, _Height);
-                _y = CppLib.y(_Alpha, _Dist, _Height);
-                _z = CppLib.z(_Alpha, _Dist, _Height);
+                _x = CppLib.x(_Alpha, value, _Height);
+                _y = CppLib.y(_Alpha, value, _Height);
+                _z = CppLib.z(_Alpha, value, _Height);
+                OnPropertyChanged("Dist");
                 UpdateXYZ();
                 UpdateFD();
-                OnPropertyChanged("Dist");
+                
             }
         }
         [Ignore]
@@ -159,12 +161,13 @@ namespace DosyagWpf
             set
             {
                 _Height = value;
-                _x = CppLib.x(_Alpha, _Dist, _Height);
-                _y = CppLib.y(_Alpha, _Dist, _Height);
-                _z = CppLib.z(_Alpha, _Dist, _Height);
+                _x = CppLib.x(_Alpha, _Dist, value);
+                _y = CppLib.y(_Alpha, _Dist, value);
+                _z = CppLib.z(_Alpha, _Dist, value);
+                OnPropertyChanged("Height");
+
                 UpdateXYZ();
                 UpdateFD();
-                OnPropertyChanged("Height");
             }
         }
 

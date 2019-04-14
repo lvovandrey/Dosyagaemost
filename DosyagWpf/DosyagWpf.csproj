@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="CppLib.cs" />
     <Compile Include="CsvWrite.cs" />
+    <Compile Include="DosyagDLLEmulator.cs" />
     <Compile Include="HeightListConverter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

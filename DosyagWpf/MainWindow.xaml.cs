@@ -28,10 +28,10 @@ namespace DosyagWpf
             
 
             DataModel = new Model();
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "ВКЛ-Выкл", "Кнопка", 555, 555, 777));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Щелк-Чик", "Тумблер", 333, 123, 323));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Пым-Пам", "Рычаг", 555, 411, 463));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "ВКЛ-Выкл", "Кнопка", 555, 555, 777));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "ВКЛ-Выкл", "Кнопка", 100, 100, 100));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Щелк-Чик", "Тумблер", 100, 100, 200));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Пым-Пам", "Рычаг", -100, 100, 100));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "ВКЛ-Выкл", "Кнопка", 100, 100, 0));
             DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Щелк-Чик", "Тумблер", 333, 123, 323));
             DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Пым-Пам", "Рычаг", 555, 411, 463));
             DataModel.SelectedOU = DataModel.OUs.First();
