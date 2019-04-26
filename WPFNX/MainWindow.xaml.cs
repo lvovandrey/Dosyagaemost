@@ -73,9 +73,7 @@ namespace WPFNX
                 DataModel.SelectedOU.X = point_coords[0];
                 DataModel.SelectedOU.Y = point_coords[1];
                 DataModel.SelectedOU.Z = point_coords[2];
-
-
-
+                               
             }
             else
             {
