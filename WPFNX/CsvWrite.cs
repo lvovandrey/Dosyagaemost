@@ -8,8 +8,9 @@ using System.IO;
 using CsvHelper.Configuration.Attributes;
 using System.Globalization;
 using System.Diagnostics;
+using System.Windows;
 
-namespace DosyagWpf
+namespace WPFNX
 {
     public class OURec 
     {
@@ -52,9 +53,12 @@ namespace DosyagWpf
 
     public class CsvWrite
     {
-        public static void Write(IEnumerable<OU> OUs) {
+        public static void Write(IEnumerable<OU> OUs)
+        {
+            MessageBox.Show("Я Тут!");
+            
             // указываем путь к файлу csv
-            string pathCsvFile = @"C:\\tmp\tmpDosyag.csv";
+            string pathCsvFile = "C:\\tmpDosyag.csv";
             List<OURec> oURecs = new List<OURec>();
 
             foreach(OU ou in OUs)
@@ -91,7 +95,8 @@ namespace DosyagWpf
                     csvReader.WriteRecords(oURecs);
                 }
             }
-            Process.Start(@"C:\\tmp\tmpDosyag.csv");
+            Process.Start("C:\\tmpDosyag.csv");
+
         }
     }
 }
