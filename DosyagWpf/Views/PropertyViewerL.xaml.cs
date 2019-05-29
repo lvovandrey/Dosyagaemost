@@ -48,4 +48,29 @@ namespace DosyagWpf.Views
             return DependencyProperty.UnsetValue;
         }
     }
+
+    public class OUFDToColorConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            Brush BB = new SolidColorBrush(Colors.Gray);
+           
+            if (value != null)
+            {
+                double val = (double)value;
+                if ((val >= 0.05) && (val < 0.99)) BB = new SolidColorBrush(Colors.Yellow);
+                else if (val >= 0.99) BB = new SolidColorBrush(Colors.Green);
+                else if ((val > 0) && (val < 0.05)) BB = new SolidColorBrush(Colors.Red);
+
+                else BB = new SolidColorBrush(Colors.Gray);
+            }
+            BB.Opacity = 0.5;
+            return BB;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+    }
 }

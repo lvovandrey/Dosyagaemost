@@ -28,12 +28,12 @@ namespace DosyagWpf
             
 
             DataModel = new Model();
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "ВКЛ-Выкл", "Кнопка", 100, 100, 100));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Щелк-Чик", "Тумблер", 100, 100, 200));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Пым-Пам", "Рычаг", -100, 100, 100));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "ВКЛ-Выкл", "Кнопка", 100, 100, 0));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Щелк-Чик", "Тумблер", 333, 123, 323));
-            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Пым-Пам", "Рычаг", 555, 411, 463));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Орган управления сбросом", "Кнопка", 100, 100, 100));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Тумблер включения электропитания", "Тумблер", 100, 100, 200));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Выпуск шасси", "Рычаг", -100, 100, 100));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Гашетка", "Кнопка", 100, 100, 0));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Передача изобажения ВЫКЛ", "Тумблер", 333, 123, 323));
+            DataModel.OUs.Add(new OU(DataModel.OUs.Count() + 1, "Стоп-кран левого двигателя", "Рычаг", 555, 411, 463));
             DataModel.SelectedOU = DataModel.OUs.First();
             this.DataContext = DataModel;
         }

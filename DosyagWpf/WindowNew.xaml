@@ -6,76 +6,39 @@
         xmlns:local="clr-namespace:DosyagWpf"
         xmlns:views="clr-namespace:DosyagWpf.Views"
         mc:Ignorable="d"
-        Title="WindowNew" Height="450" Width="800">
+        Title="WindowNew" Height="450" Width="600">
     <Grid>
         <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_Файл">
-                    <MenuItem Header="_Импорт из .csv" >
-                        <MenuItem.Icon>
-                            <Image Source="Images/PNG/Table-Import.png" Width="20" Height="20"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    
-                    <MenuItem Header="_Экспорт в .csv" >
-                        <MenuItem.Icon>
-                            <Image Source="Images/PNG/Export-Excel.png" Width="20" Height="20"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <Separator />
-                    <MenuItem Header="_Выход" >
-                        <MenuItem.Icon>
-                            <Image Source="Images/PNG/Cross.png" Width="10" Height="10"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="_Инструменты">
-                    <MenuItem Header="_Измерить в NX">
-                        <MenuItem.Icon>
-                            <Image Source="Images/PNG/Measure.png" Width="20" Height="20"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                   
-                </MenuItem>
-                <MenuItem Header="_Справка">
-                    <MenuItem Header="_О программе">
-                        <MenuItem.Icon>
-                            <Image Source="Images/PNG/Question.png" Width="20" Height="20"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </MenuItem>
-            </Menu>
+            <views:MenuNew DockPanel.Dock="Top"/>
+            <views:ToolBarNew DockPanel.Dock="Top"/>
 
             <StatusBar DockPanel.Dock="Bottom">
                 <StatusBarItem>
-                    <TextBlock Name="lblCursorPosition" >Статус: ОК</TextBlock>
+                    <TextBlock Name="lblCursorPosition" Text="Статус: ОК" />
                 </StatusBarItem>
             </StatusBar>
             
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition x:Name="TableCol" Width="0"/>
+                    <ColumnDefinition  x:Name="ListCol" Width="*"/>
+                    <ColumnDefinition Width="3"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height ="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+
+                <views:TableOUs />
+
                 <ListBox ItemsSource="{Binding OUs}" 
                          SelectedItem="{Binding SelectedOU, UpdateSourceTrigger=PropertyChanged}" 
-                 Grid.Row="1" Grid.ColumnSpan="4" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" >
+                  Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <views:OUView HorizontalAlignment="Stretch"/>
                         </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <views:SelectedOUViewer DataContext="{Binding SelectedOU}" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderThickness="2" BorderBrush="#FF4B4B4B"/>
+                    </ListBox.ItemTemplate> </ListBox>
+                <GridSplitter Grid.Column="2" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+                <views:SelectedOUViewer DataContext="{Binding SelectedOU}" Grid.Column="3"/>
             </Grid>
         </DockPanel>
     </Grid>

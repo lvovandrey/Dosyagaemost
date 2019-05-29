@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="DosyagWpf.Views.ToolBarNew"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DosyagWpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ToolBar Height="40" VerticalAlignment="Top">
+            <Button>
+                <Image Source="/DosyagWpf;component/Images/PNG/Measure.png" />
+            </Button>
+            <Separator />
+            <Button>
+                <Image Source="/DosyagWpf;component/Images/PNG/Add.png" />
+            </Button>
+             
+            <Button Margin="40,0,40,0">
+                <Image Source="/DosyagWpf;component/Images/PNG/Delete.png" />
+            </Button>
+            <Separator />
+            <Button>
+                <Image Source="/DosyagWpf;component/Images/PNG/Export-Excel.png" />
+            </Button>
+            <TextBox Foreground="LightGray" Width="100">Поиск по имени...</TextBox>
+        </ToolBar>
+    </Grid>
+</UserControl>

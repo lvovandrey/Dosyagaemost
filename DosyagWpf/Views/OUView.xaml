@@ -5,52 +5,61 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DosyagWpf.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="80" d:DesignWidth="400" BorderBrush="Black" BorderThickness="1" Margin="0,-1,0,0">
+    <UserControl.Resources>
+        <local:OUTypeToSourceConverter x:Key="ConverterTypeOUtoPict"/>
+        <local:OUFDToColorConverter2 x:Key="ConverterColor"/>
+        <local:OUFDToStringConverter x:Key="Converter1"/>
+    </UserControl.Resources>
     <Grid>
-        <Grid Height="90"  HorizontalAlignment="Stretch">
+        <DockPanel >
+        <Grid Height="80"  HorizontalAlignment="Stretch" DockPanel.Dock="Left">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="140"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-
-            <!--<Image Source="{Binding VideoInfoVM.PreviewVM.Source, UpdateSourceTrigger=PropertyChanged}" Stretch="Fill" Margin="5">-->
-            <Image Source="/DosyagWpf;component/Images/button.png" Margin="5" Width="20" Height="20" StretchDirection="DownOnly" Stretch="UniformToFill"/>
-
-            <WrapPanel Grid.ColumnSpan="3">
-                <TextBlock Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" FontSize="9" Margin="5" Grid.Column="0"/>
-                <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  FontSize="9" Margin="5" Grid.Column="2"/>
-                <TextBlock Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}"  FontSize="9" Margin="5" Grid.Column="4"/>
-                <TextBlock Text="{Binding Alpha, UpdateSourceTrigger=PropertyChanged , StringFormat=\{0:f1\}}"  FontSize="9" Margin="5" Grid.Column="6"/>
-                <TextBlock Text="{Binding Dist, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:f1\}}"  FontSize="9" Margin="5" Grid.Column="8"/>
-                <TextBlock Text="{Binding Height, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:f1\}}"  FontSize="9" Margin="5" Grid.Column="10"/>
-
-                <TextBlock Text="{Binding FDLight, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P1} }"  FontSize="9" Margin="5" Grid.Column="12"/>
-                <TextBlock Text="{Binding FDFull, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P1}}"  FontSize="9" Margin="5" Grid.Column="14"/>
-                <TextBlock Text="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P1}}"  FontSize="9" Margin="5" Grid.Column="16"/>
-                <TextBlock Text="{Binding FDLightSpec, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P1}}"  FontSize="9" Margin="5" Grid.Column="18"/>
-                <TextBlock Text="{Binding FDFullSpec, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P1}}"  FontSize="9" Margin="5" Grid.Column="20"/>
-                <TextBlock Text="{Binding FDUltimateSpec, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:P1}}"  FontSize="9" Margin="5" Grid.Column="22"/>
-            </WrapPanel>
             
-            <Grid Grid.Column="1"  HorizontalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Content="{Binding Name, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Grid.ColumnSpan="2" FontSize="15"/>
+            
+            
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="250"/>
+                
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
 
-                <Label Content="{Binding VideoInfoVM.Title, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="16"/>
-                <Label Content="{Binding VideoInfoVM.Duration, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" FontSize="16"/>
-
-              
-            </Grid>
+          
+            <Image Source="{Binding IntType, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ConverterTypeOUtoPict }}" 
+                    Width="40" Height="40" StretchDirection="DownOnly" Stretch="UniformToFill"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="1">            
+                <TextBlock Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" FontSize="12" Margin="5,0,20,0" />
+                <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  FontSize="12"  />
+            </StackPanel>
+         
+            <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" >
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Полная досягаемость=" FontSize="9" Foreground="{Binding FDFull, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}" />
+                        <Label Content="{Binding FDFull, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  Converter1}}"  FontSize="9" 
+                       Foreground="{Binding FDFull, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Предельная досягаемость=" FontSize="9" Foreground="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}" />
+                        <Label Content="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  Converter1}}"  FontSize="9"
+                        Foreground="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}"/>
+                    </StackPanel>
+                </StackPanel>
+            
+        
         </Grid>
+
+            <StackPanel DockPanel.Dock="Right" Width="80">
+                <local:PropertyViewerFloatLittle  DataContext="{Binding Alpha, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Tag="Alpha="/>
+                <local:PropertyViewerFloatLittle  DataContext="{Binding Dist, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Tag="Dist="/>
+                <local:PropertyViewerFloatLittle  DataContext="{Binding Height, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Tag="H="/>
+
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </UserControl>
