@@ -1,10 +1,12 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace DosyagWpf
 {
@@ -57,7 +59,7 @@ namespace DosyagWpf
                 return measureCommand ??
                   (measureCommand = new RelayCommand(obj =>
                   {
-                      MessageBox.Show("ТУТ РАБОТА С NX");
+                      System.Windows.MessageBox.Show("ТУТ РАБОТА С NX");
                   }));
             }
         }
@@ -69,10 +71,16 @@ namespace DosyagWpf
                 return exportCommand ??
                   (exportCommand = new RelayCommand(obj =>
                   {
-                      CsvWrite.Write(OUs);
+                      try
+                      {
+                          CsvWrite.Write(OUs);
+                      }
+                      catch { System.Windows.MessageBox.Show("Ошибка экспорта файла"); }
                   }));
             }
         }
+
+
         private RelayCommand importCommand;
         public RelayCommand ImportCommand
         {
@@ -81,8 +89,89 @@ namespace DosyagWpf
                 return importCommand ??
                   (importCommand = new RelayCommand(obj =>
                   {
-                      string file = @"C:\\tmp\tmpDosyag.csv";
-                        CsvWrite.Read(file, OUs, true);
+
+                          OpenFileDialog openFileDialog = new OpenFileDialog();
+                          openFileDialog.Title = "Добавление информации";
+                          openFileDialog.Filter = "CSV files(*.csv)|*.csv";
+
+                          if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+                              return;
+                          // получаем выбранный файл
+                          string filename = openFileDialog.FileName;
+                          // сохраняем текст в файл
+                          try
+                          {
+                              CsvWrite.Read(filename, OUs, true);
+
+                          }
+                          catch { System.Windows.MessageBox.Show("Ошибка открытия файла"); }
+
+                  }));
+            }
+        }
+
+        private RelayCommand saveCommand;
+        public RelayCommand SaveCommand
+        {
+            get
+            {
+                return saveCommand ??
+                  (saveCommand = new RelayCommand(obj =>
+                  {
+                      SaveFileDialog saveFileDialog = new SaveFileDialog();
+                      saveFileDialog.Filter = "CSV files(*.csv)|*.csv";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                        return;
+                    // получаем выбранный файл
+                    string filename = saveFileDialog.FileName;
+                      // сохраняем текст в файл
+                      try
+                      {
+                          CsvWrite.Write(OUs, filename);
+                          System.Windows.MessageBox.Show("Файл сохранен");
+                      }
+                      catch { System.Windows.MessageBox.Show("Ошибка сохранения файла"); }
+                          
+
+                    
+                  }));
+            }
+        }
+
+
+        private RelayCommand openCommand;
+        public RelayCommand OpenCommand
+        {
+            get
+            {
+                return openCommand ??
+                  (openCommand = new RelayCommand(obj =>
+                  {
+                      
+                      MessageBoxResult res = System.Windows.MessageBox.Show("Текущая информация будет стерта и заменена данными из файла. Продолжить?", "Открытие файла", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
+                      if (res == MessageBoxResult.OK)
+                      {
+                          OpenFileDialog openFileDialog = new OpenFileDialog();
+                          openFileDialog.Filter = "CSV files(*.csv)|*.csv";
+
+                          if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+                              return;
+                          // получаем выбранный файл
+                          string filename = openFileDialog.FileName;
+                          // сохраняем текст в файл
+                          try
+                          {
+                              ObservableCollection<OU> NewOUs = new ObservableCollection<OU>();
+                              NewOUs = CsvWrite.Read(filename, OUs, false);
+                              OUs.Clear(); 
+                              foreach  (OU item in NewOUs)
+                              {
+                                  OUs.Add(item);
+                              }
+                          }
+                          catch { System.Windows.MessageBox.Show("Ошибка открытия файла"); }
+                      }
                   }));
             }
         }

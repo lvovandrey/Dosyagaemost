@@ -8,21 +8,36 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <ToolBar Height="40" VerticalAlignment="Top">
-            <Button  Command="{Binding MeasureCommand}">
-                <Image Source="/DosyagWpf;component/Images/PNG/Measure.png" />
+            <Separator />
+            <Button Command="{Binding OpenCommand}">
+                <Image Source="/DosyagWpf;component/Images/PNG/Page-White-Add.png" />
             </Button>
+            <Button Command="{Binding SaveCommand}">
+                <Image Source="/DosyagWpf;component/Images/PNG/Disk.png" />
+            </Button>
+
+            <Button  Command="{Binding ExportCommand}">
+                <Image Source="/DosyagWpf;component/Images/PNG/Page-White-Get.png" />
+            </Button>
+            <Button  Command="{Binding ImportCommand}">
+                <Image Source="/DosyagWpf;component/Images/PNG/Page-White-Put.png" />
+            </Button>
+
             <Separator />
             <Button Command="{Binding AddCommand}">
                 <Image Source="/DosyagWpf;component/Images/PNG/Add.png" />
             </Button>
 
-            <Button  Command="{Binding RemoveCommand}" Margin="40,0,40,0">
+            <Button  Command="{Binding RemoveCommand}" >
                 <Image Source="/DosyagWpf;component/Images/PNG/Delete.png" />
             </Button>
-            <Separator />
-            <Button  Command="{Binding ExportCommand}">
-                <Image Source="/DosyagWpf;component/Images/PNG/Export-Excel.png" />
+            <Separator/>
+            
+
+            <Button  Command="{Binding MeasureCommand}">
+                <Image Source="/DosyagWpf;component/Images/PNG/Measure.png" />
             </Button>
+            <Separator />
             <TextBox Foreground="LightGray" Width="100">Поиск по имени...</TextBox>
         </ToolBar>
     </Grid>

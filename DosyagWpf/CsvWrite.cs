@@ -54,9 +54,15 @@ namespace DosyagWpf
 
     public class CsvWrite
     {
-        public static void Write(IEnumerable<OU> OUs) {
-            // указываем путь к файлу csv
+        public static void Write(IEnumerable<OU> OUs)
+        {// указываем путь к файлу csv
             string pathCsvFile = @"C:\\tmp\tmpDosyag.csv";
+            Write(OUs, pathCsvFile);
+        }
+
+        public static void Write(IEnumerable<OU> OUs, string filename)
+        {
+            
             List<OURec> oURecs = new List<OURec>();
 
             foreach(OU ou in OUs)
@@ -82,7 +88,7 @@ namespace DosyagWpf
             }
 
             // добавляем тестовые данные, которые будем записывать в csv файл
-            using (StreamWriter streamReader = new StreamWriter(pathCsvFile,false, Encoding.UTF8))
+            using (StreamWriter streamReader = new StreamWriter(filename, false, Encoding.UTF8))
             {
                 using (CsvWriter csvReader = new CsvWriter(streamReader))
                 {
@@ -97,11 +103,11 @@ namespace DosyagWpf
         }
 
 
-        public static void Read(string pathCsvFile, ObservableCollection<OU> OUs, bool Append)
+        public static ObservableCollection<OU> Read(string pathCsvFile, ObservableCollection<OU> OUs, bool Append)
         {
 
             IEnumerable<OURec> OURecs;
-
+            ObservableCollection<OU> New = new ObservableCollection<OU>();
             using (StreamReader reader = new StreamReader(pathCsvFile, Encoding.UTF8))
             {
                 using (var csv = new CsvReader(reader))
@@ -109,13 +115,21 @@ namespace DosyagWpf
                     // указываем разделитель, который будет использоваться в файле
                     csv.Configuration.Delimiter = ";";
                     OURecs = csv.GetRecords<OURec>();
-                    if (!Append) OUs = new ObservableCollection<OU>();
+                    if (!Append) { New = new ObservableCollection<OU>(); }
+                    else
+                    {
+                        foreach (OU item in OUs)
+                        {
+                            New.Add(item);
+                        }
+                    }
 
                     foreach (OURec item in OURecs)
                     {
                         OU ou = new OU(item._number, item._name, item._type, item._x, item._y, item._z);
-                        OUs.Add(ou);
+                        New.Add(ou);
                     }
+                    return New;
                 }
             }
 
