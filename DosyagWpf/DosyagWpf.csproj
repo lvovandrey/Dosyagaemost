@@ -63,6 +63,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\OUView.xaml.cs">
+      <DependentUpon>OUView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyViewerFloat.xaml.cs">
+      <DependentUpon>PropertyViewerFloat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyViewer.xaml.cs">
+      <DependentUpon>PropertyViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyViewerCombobox.xaml.cs">
+      <DependentUpon>PropertyViewerCombobox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyViewerL.xaml.cs">
+      <DependentUpon>PropertyViewerL.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectedOUViewer.xaml.cs">
+      <DependentUpon>SelectedOUViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowNew.xaml.cs">
+      <DependentUpon>WindowNew.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,6 +100,34 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\OUView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PropertyViewerFloat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PropertyViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PropertyViewerCombobox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PropertyViewerL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectedOUViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model.cs" />
@@ -108,6 +157,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button.png" />
+    <Resource Include="Images\lever.png" />
+    <Resource Include="Images\tumbler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Table-Import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Export-Excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Measure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Question.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

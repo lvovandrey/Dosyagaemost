@@ -64,5 +64,12 @@ namespace DosyagWpf
             if (e.ExtentHeightChange > 0.0)
                 ((ScrollViewer)e.OriginalSource).ScrollToEnd();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            WindowNew wn = new WindowNew();
+            wn.DataContext = this.DataContext;
+            wn.Show();
+        }
     }
 }
