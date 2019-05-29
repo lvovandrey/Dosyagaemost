@@ -9,38 +9,38 @@
     <Grid>
         <Menu>
             <MenuItem Header="_Файл">
-                <MenuItem Header="_Импорт из .csv" >
+                <MenuItem Header="_Импорт из .csv" Command="{Binding ImportCommand}">
                     <MenuItem.Icon>
                         <Image Source="/DosyagWpf;component/Images/PNG/Table-Import.png" Width="20" Height="20"/>
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="_Экспорт в .csv" >
+                <MenuItem Header="_Экспорт в .csv" Command="{Binding ExportCommand}" >
                     <MenuItem.Icon>
                         <Image Source="/DosyagWpf;component/Images/PNG/Export-Excel.png" Width="20" Height="20"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
-                <MenuItem Header="_Выход" >
+                <MenuItem Header="_Выход" Command="{Binding ExitCommand}">
                     <MenuItem.Icon>
                         <Image Source="/DosyagWpf;component/Images/PNG/Cross.png" Width="10" Height="10"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_Инструменты">
-                <MenuItem Header="_Измерить в NX">
+                <MenuItem Header="_Измерить в NX" Command="{Binding MeasureCommand}">
                     <MenuItem.Icon>
                         <Image Width="20" Height="20" Source="/DosyagWpf;component/Images/PNG/Measure.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 </MenuItem>
             <MenuItem Header="_Вид">
-                <MenuItem Header="_Показать таблицу" >
+                <MenuItem Header="_Показать таблицу"  Command="{Binding ShowTableCommand}">
                     <MenuItem.Icon>
                         <Image Width="20" Height="20" Source="/DosyagWpf;component/Images/PNG/Table.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Скрыть таблицу" >
+                <MenuItem Header="_Скрыть таблицу" Command="{Binding HideTableCommand}" >
                     <MenuItem.Icon>
                         <Image Width="20" Height="20" Source="/DosyagWpf;component/Images/PNG/Table-Delete.png"/>
                     </MenuItem.Icon>
@@ -48,7 +48,7 @@
             </MenuItem>
 
             <MenuItem Header="_Справка">
-                    <MenuItem Header="_О программе">
+                <MenuItem Header="_О программе" Command="{Binding AboutCommand}">
                         <MenuItem.Icon>
                             <Image Width="20" Height="20" Source="/DosyagWpf;component/Images/PNG/Question.png"/>
                         </MenuItem.Icon>

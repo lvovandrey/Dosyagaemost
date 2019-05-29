@@ -70,6 +70,7 @@ namespace DosyagWpf
             WindowNew wn = new WindowNew();
             wn.DataContext = this.DataContext;
             wn.Show();
+            DataModel.windowNew = wn;
         }
     }
 }

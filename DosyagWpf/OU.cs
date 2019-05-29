@@ -278,6 +278,7 @@ namespace DosyagWpf
                     default: _type = "Другое"; break;
                 }
                 UpdateFD();
+               
             }
         }
         [Ignore]
@@ -290,6 +291,7 @@ namespace DosyagWpf
                 _type = value;
                 UpdateFD();
                 OnPropertyChanged("Type");
+                OnPropertyChanged("IntType");
             }
         }
         [Ignore]

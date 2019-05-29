@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DosyagWpf"
         xmlns:views="clr-namespace:DosyagWpf.Views"
         mc:Ignorable="d"
-        Title="WindowNew" Height="450" Width="600">
+        Title="WindowNew" Height="450" Width="700">
     <Grid>
         <DockPanel>
             <views:MenuNew DockPanel.Dock="Top"/>
@@ -21,9 +21,9 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="TableCol" Width="0"/>
-                    <ColumnDefinition  x:Name="ListCol" Width="*"/>
+                    <ColumnDefinition  x:Name="ListCol" Width="5*"/>
                     <ColumnDefinition Width="3"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
 
                 <views:TableOUs />
