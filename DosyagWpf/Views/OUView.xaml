@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DosyagWpf.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="80" d:DesignWidth="400" BorderBrush="Black" BorderThickness="1" Margin="0,-1,0,0">
+             d:DesignHeight="80" d:DesignWidth="400" BorderBrush="Black"  BorderThickness="1" Margin="0,-1,0,0">
     <UserControl.Resources>
         <local:OUTypeToSourceConverter x:Key="ConverterTypeOUtoPict"/>
         <local:OUFDToColorConverter2 x:Key="ConverterColor"/>
@@ -55,6 +55,7 @@
         </Grid>
 
             <StackPanel DockPanel.Dock="Right" Width="80">
+
                 <local:PropertyViewerFloatLittle  DataContext="{Binding Alpha, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Tag="Alpha="/>
                 <local:PropertyViewerFloatLittle  DataContext="{Binding Dist, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Tag="Dist="/>
                 <local:PropertyViewerFloatLittle  DataContext="{Binding Height, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Tag="H="/>

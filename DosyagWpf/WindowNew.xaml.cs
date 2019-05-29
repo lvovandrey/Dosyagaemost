@@ -14,14 +14,21 @@ using System.Windows.Shapes;
 
 namespace DosyagWpf
 {
+   
     /// <summary>
     /// Логика взаимодействия для WindowNew.xaml
     /// </summary>
     public partial class WindowNew : Window
     {
+        public Model DataModel; //КРИВОЙ ЗАКОС ПОД MVVM
+
         public WindowNew()
         {
             InitializeComponent();
+
+            DataModel = new Model();
+           // DataModel.SelectedOU = DataModel.OUs.First();
+            this.DataContext = DataModel;
         }
     }
 }
