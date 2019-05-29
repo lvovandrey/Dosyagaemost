@@ -73,6 +73,19 @@ namespace DosyagWpf
                   }));
             }
         }
+        private RelayCommand importCommand;
+        public RelayCommand ImportCommand
+        {
+            get
+            {
+                return importCommand ??
+                  (importCommand = new RelayCommand(obj =>
+                  {
+                      string file = @"C:\\tmp\tmpDosyag.csv";
+                        CsvWrite.Read(file, OUs, true);
+                  }));
+            }
+        }
 
         private RelayCommand showTableCommand;
         public RelayCommand ShowTableCommand

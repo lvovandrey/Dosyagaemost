@@ -8,6 +8,8 @@ using System.IO;
 using CsvHelper.Configuration.Attributes;
 using System.Globalization;
 using System.Diagnostics;
+using Microsoft.Win32;
+using System.Collections.ObjectModel;
 
 namespace DosyagWpf
 {
@@ -92,6 +94,32 @@ namespace DosyagWpf
                 }
             }
             Process.Start(@"C:\\tmp\tmpDosyag.csv");
+        }
+
+
+        public static void Read(string pathCsvFile, ObservableCollection<OU> OUs, bool Append)
+        {
+
+            IEnumerable<OURec> OURecs;
+
+            using (StreamReader reader = new StreamReader(pathCsvFile, Encoding.UTF8))
+            {
+                using (var csv = new CsvReader(reader))
+                {
+                    // указываем разделитель, который будет использоваться в файле
+                    csv.Configuration.Delimiter = ";";
+                    OURecs = csv.GetRecords<OURec>();
+                    if (!Append) OUs = new ObservableCollection<OU>();
+
+                    foreach (OURec item in OURecs)
+                    {
+                        OU ou = new OU(item._number, item._name, item._type, item._x, item._y, item._z);
+                        OUs.Add(ou);
+                    }
+                }
+            }
+
+
         }
     }
 }
