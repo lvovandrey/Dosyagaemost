@@ -16,9 +16,7 @@
                 <Image Source="/DosyagWpf;component/Images/PNG/Disk.png" />
             </Button>
 
-            <Button  Command="{Binding ExportCommand}">
-                <Image Source="/DosyagWpf;component/Images/PNG/Page-White-Get.png" />
-            </Button>
+
             <Button  Command="{Binding ImportCommand}">
                 <Image Source="/DosyagWpf;component/Images/PNG/Page-White-Put.png" />
             </Button>

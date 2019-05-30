@@ -5,54 +5,72 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DosyagWpf.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="80" d:DesignWidth="400" BorderBrush="Black"  BorderThickness="1" Margin="0,-1,0,0">
+             d:DesignHeight="80" d:DesignWidth="400" BorderBrush="Black"  BorderThickness="1" Margin="0,-1,0,0" HorizontalAlignment="Stretch">
     <UserControl.Resources>
         <local:OUTypeToSourceConverter x:Key="ConverterTypeOUtoPict"/>
         <local:OUFDToColorConverter2 x:Key="ConverterColor"/>
         <local:OUFDToStringConverter x:Key="Converter1"/>
     </UserControl.Resources>
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#7FE0EFFF" Offset="0"/>
+                <GradientStop Color="#7F85A4C4" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <DockPanel >
-        <Grid Height="80"  HorizontalAlignment="Stretch" DockPanel.Dock="Left">
+            <Grid Height="80"  HorizontalAlignment="Stretch" DockPanel.Dock="Left">
 
-            
-            
-            
-            
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="250"/>
-                
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="250"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
 
-          
-            <Image Source="{Binding IntType, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ConverterTypeOUtoPict }}" 
+
+                <Image Source="{Binding IntType, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ConverterTypeOUtoPict }}" 
                     Width="40" Height="40" StretchDirection="DownOnly" Stretch="UniformToFill"/>
-            <StackPanel Orientation="Horizontal" Grid.Column="1">            
-                <TextBlock Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" FontSize="12" Margin="5,0,20,0" />
-                <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  FontSize="12"  />
-            </StackPanel>
-         
-            <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" >
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Полная досягаемость=" FontSize="9" Foreground="{Binding FDFull, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}" />
+                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                    <TextBlock Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" FontSize="12" Margin="5,0,20,0" />
+                    <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  FontSize="12"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="Полная досягаемость=" FontSize="9" Foreground="{Binding FDFull, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}" >
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="0" Color="White" ShadowDepth="0.5"/>
+                            </Label.Effect>
+                        </Label>
                         <Label Content="{Binding FDFull, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  Converter1}}"  FontSize="9" 
-                       Foreground="{Binding FDFull, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}" />
+                       Foreground="{Binding FDFull, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}"  >
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="0" Color="White" ShadowDepth="0.5"/>
+                            </Label.Effect>
+                        </Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Предельная досягаемость=" FontSize="9" Foreground="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}" />
+                        <Label Content="Предельная досягаемость=" FontSize="9" Foreground="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}"  >
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="0" Color="White" ShadowDepth="0.5"/>
+                            </Label.Effect>
+                        </Label>
                         <Label Content="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  Converter1}}"  FontSize="9"
-                        Foreground="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}"/>
+                        Foreground="{Binding FDUltimate, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource  ConverterColor}}" >
+                                <Label.Effect>
+                                    <DropShadowEffect BlurRadius="0" Color="White" ShadowDepth="0.5"/>
+                            </Label.Effect>
+                        </Label>
                     </StackPanel>
                 </StackPanel>
-            
-        
-        </Grid>
+
+
+            </Grid>
 
             <StackPanel DockPanel.Dock="Right" Width="80">
 

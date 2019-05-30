@@ -9,10 +9,10 @@
     <Grid>
         <Grid x:Name="ThisGrid" Tag="Название">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition  Width="30"/>
+                <ColumnDefinition  Width="40"/>
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
-            <TextBox FontSize="8" Text="{Binding ElementName=This, Path=DataContext, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat=\{0:f1\}}" Grid.Column="1" Background="{x:Null}" />
+            <Label FontSize="8" Content="{Binding ElementName=This, Path=DataContext, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ContentStringFormat=" {0:f1}"  Grid.Column="1" Background="{x:Null}" BorderThickness="1" />
             <Label FontSize="8" Content="{Binding ElementName= This, Path=Tag}"/>
         </Grid>
     </Grid>

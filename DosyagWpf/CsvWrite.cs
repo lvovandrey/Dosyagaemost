@@ -99,11 +99,11 @@ namespace DosyagWpf
                     csvReader.WriteRecords(oURecs);
                 }
             }
-            Process.Start(@"C:\\tmp\tmpDosyag.csv");
+       //     Process.Start(@"C:\\tmp\tmpDosyag.csv");
         }
 
 
-        public static ObservableCollection<OU> Read(string pathCsvFile, ObservableCollection<OU> OUs, bool Append)
+        public static ObservableCollection<OU> Read(string pathCsvFile)
         {
 
             IEnumerable<OURec> OURecs;
@@ -115,15 +115,7 @@ namespace DosyagWpf
                     // указываем разделитель, который будет использоваться в файле
                     csv.Configuration.Delimiter = ";";
                     OURecs = csv.GetRecords<OURec>();
-                    if (!Append) { New = new ObservableCollection<OU>(); }
-                    else
-                    {
-                        foreach (OU item in OUs)
-                        {
-                            New.Add(item);
-                        }
-                    }
-
+                    
                     foreach (OURec item in OURecs)
                     {
                         OU ou = new OU(item._number, item._name, item._type, item._x, item._y, item._z);

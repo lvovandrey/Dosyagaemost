@@ -23,17 +23,13 @@
                 </MenuItem>
 
                 <Separator />
-                <MenuItem Header="_Импорт из .csv" Command="{Binding ImportCommand}">
-                    <MenuItem.Icon>
-                        <Image Source="/DosyagWpf;component/Images/PNG/Page-White-Get.png" Width="20" Height="20"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-
-                <MenuItem Header="_Экспорт в .csv" Command="{Binding ExportCommand}" >
+                <MenuItem Header="_Добавить из .csv" Command="{Binding ImportCommand}">
                     <MenuItem.Icon>
                         <Image Source="/DosyagWpf;component/Images/PNG/Page-White-Put.png" Width="20" Height="20"/>
                     </MenuItem.Icon>
                 </MenuItem>
+
+
                 <Separator />
                 <MenuItem Header="_Выход" Command="{Binding ExitCommand}">
                     <MenuItem.Icon>

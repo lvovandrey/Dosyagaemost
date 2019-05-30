@@ -30,10 +30,11 @@
 
                 <ListBox ItemsSource="{Binding OUs}" 
                          SelectedItem="{Binding SelectedOU, UpdateSourceTrigger=PropertyChanged}" 
-                  Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" >
+                  Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" 
+                         x:Name="ListBoxOUs">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <views:OUView HorizontalAlignment="Stretch"/>
+                            <views:OUView Width="{Binding ElementName=ListBoxOUs,Path=ActualWidth,UpdateSourceTrigger=PropertyChanged}"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate> </ListBox>
                 <GridSplitter Grid.Column="2" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>

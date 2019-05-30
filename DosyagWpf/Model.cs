@@ -101,11 +101,16 @@ namespace DosyagWpf
                           // сохраняем текст в файл
                           try
                           {
-                              CsvWrite.Read(filename, OUs, true);
+                                ObservableCollection<OU> New =  CsvWrite.Read(filename);
+                          foreach (OU item in New)
+                          {
+                              OUs.Add(item);
+                          }
 
                           }
                           catch { System.Windows.MessageBox.Show("Ошибка открытия файла"); }
 
+                     
                   }));
             }
         }
@@ -163,7 +168,7 @@ namespace DosyagWpf
                           try
                           {
                               ObservableCollection<OU> NewOUs = new ObservableCollection<OU>();
-                              NewOUs = CsvWrite.Read(filename, OUs, false);
+                              NewOUs = CsvWrite.Read(filename);
                               OUs.Clear(); 
                               foreach  (OU item in NewOUs)
                               {
