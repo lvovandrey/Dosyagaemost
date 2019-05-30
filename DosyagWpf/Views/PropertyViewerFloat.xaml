@@ -5,14 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DosyagWpf.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="30"  x:Name="This" Tag="Default tag" Margin="5">
+             d:DesignHeight="30"  x:Name="This" Tag="Default tag" Margin="1">
     <Grid>
         <Grid x:Name="ThisGrid" Tag="Название">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="100"/>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBox FontSize="10" Text="{Binding ElementName=This, Path=DataContext, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat=\{0:f1\}}" Grid.Column="1" />
+            <TextBox FontSize="10" Text="{Binding ElementName=This, Path=DataContext, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat=\{0:f1\}}" Grid.Column="1" PreviewMouseWheel="TextBox_PreviewMouseWheel" />
             <Label FontSize="10" Content="{Binding ElementName= This, Path=Tag}"/>
         </Grid>
     </Grid>

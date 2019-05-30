@@ -23,8 +23,8 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="250"/>
-
+                    <ColumnDefinition Width="*"/>
+                    
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
@@ -72,7 +72,7 @@
 
             </Grid>
 
-            <StackPanel DockPanel.Dock="Right" Width="80">
+            <StackPanel  Width="80" DockPanel.Dock="Right" HorizontalAlignment="Right">
 
                 <local:PropertyViewerFloatLittle  DataContext="{Binding Alpha, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Tag="Alpha="/>
                 <local:PropertyViewerFloatLittle  DataContext="{Binding Dist, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Tag="Dist="/>

@@ -10,10 +10,11 @@
         <Grid x:Name="ThisGrid" Tag="Название">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="40"/>
-                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="40" />
             </Grid.ColumnDefinitions>
-            <Label FontSize="8" Content="{Binding ElementName=This, Path=DataContext, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ContentStringFormat=" {0:f1}"  Grid.Column="1" Background="{x:Null}" BorderThickness="1" />
-            <Label FontSize="8" Content="{Binding ElementName= This, Path=Tag}"/>
+            <Label  FontSize="8" Content="{Binding ElementName=This, Path=DataContext, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ContentStringFormat=" {0:f1}"  
+                    HorizontalContentAlignment="Left" HorizontalAlignment="Left" Grid.Column="1" Background="{x:Null}" BorderThickness="1" />
+            <Label  FontSize="8" Content="{Binding ElementName= This, Path=Tag}" HorizontalContentAlignment="Right"/>
         </Grid>
     </Grid>
 </UserControl>

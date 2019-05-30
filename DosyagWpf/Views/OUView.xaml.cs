@@ -80,4 +80,32 @@ namespace DosyagWpf.Views
             return DependencyProperty.UnsetValue;
         }
     }
+
+    public class OUWidthOfItemConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            double width = 30;
+           if (value != null)
+            {
+                    double val = (double)value;
+                    double param;
+
+                    if ((parameter != null) && (parameter is string))
+                    {
+                        double.TryParse((string)parameter, out param);
+                        width = val - param;
+                    }
+                    else width = val - 20;
+              
+            }
+
+            return width;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+    }
 }

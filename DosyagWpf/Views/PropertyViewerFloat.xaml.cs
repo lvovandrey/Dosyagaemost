@@ -24,5 +24,16 @@ namespace DosyagWpf.Views
         {
             InitializeComponent();
         }
+
+
+        private void TextBox_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (!((TextBox)sender).IsFocused) return;
+            double x = (double)this.DataContext;
+            if (e.Delta > 0) x++;
+            else x--;
+            this.DataContext = (object)x;
+            e.Handled = true;
+        }
     }
 }

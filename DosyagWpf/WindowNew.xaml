@@ -3,10 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys ="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:DosyagWpf"
         xmlns:views="clr-namespace:DosyagWpf.Views"
         mc:Ignorable="d"
         Title="WindowNew" Height="450" Width="700">
+    <Window.Resources>
+        <views:OUWidthOfItemConverter x:Key="WidthConverter"></views:OUWidthOfItemConverter>
+        <sys:Double x:Key="WidthParam">100</sys:Double>
+    </Window.Resources>
     <Grid>
         <DockPanel>
             <views:MenuNew DockPanel.Dock="Top"/>
@@ -34,7 +39,8 @@
                          x:Name="ListBoxOUs">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <views:OUView Width="{Binding ElementName=ListBoxOUs,Path=ActualWidth,UpdateSourceTrigger=PropertyChanged}"/>
+                            <views:OUView Width="{Binding ElementName=ListBoxOUs,Path=ActualWidth,UpdateSourceTrigger=PropertyChanged, 
+                                Converter={StaticResource WidthConverter}, ConverterParameter=25}"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate> </ListBox>
                 <GridSplitter Grid.Column="2" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
