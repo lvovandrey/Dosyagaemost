@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:WPFNX"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="1200">
-    <Window.Resources>
+    <!--<Window.Resources>
         <local:HeightListConverter x:Key="heightListConverter" />
-    </Window.Resources>
+    </Window.Resources>-->
     <Grid>
 
         <Grid.ColumnDefinitions>
