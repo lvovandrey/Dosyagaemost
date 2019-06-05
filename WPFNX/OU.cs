@@ -178,7 +178,7 @@ namespace WPFNX
             {
                 _FDLight = CppLib.Dosyagaemost(1, this.IntType, false, X, Y, Z);
                 return _FDLight;
-            } // Запрашиваем данные через DLL - позже сделаем
+            } // Запрашиваем данные через DLL
             set
             {
                 _FDLight = value;
@@ -192,7 +192,7 @@ namespace WPFNX
             {
                 _FDLightSpec = CppLib.Dosyagaemost(1, this.IntType, true, X, Y, Z);
                 return _FDLightSpec;
-            } // Запрашиваем данные через DLL - позже сделаем
+            } // Запрашиваем данные через DLL 
             set
             {
                 _FDLightSpec = value;
@@ -206,7 +206,7 @@ namespace WPFNX
             {
                 _FDFull = CppLib.Dosyagaemost(2, this.IntType, false, X, Y, Z);
                 return _FDFull;
-            } // Запрашиваем данные через DLL - позже сделаем
+            } // Запрашиваем данные через DLL 
             set
             {
                 _FDFull = value;
@@ -220,7 +220,7 @@ namespace WPFNX
             {
                 _FDFullSpec = CppLib.Dosyagaemost(2, this.IntType, true, X, Y, Z);
                 return _FDFullSpec;
-            } // Запрашиваем данные через DLL - позже сделаем
+            } // Запрашиваем данные через DLL
             set
             {
                 _FDFullSpec = value;
@@ -234,7 +234,7 @@ namespace WPFNX
             {
                 _FDUltimate = CppLib.Dosyagaemost(3, this.IntType, false, X, Y, Z);
                 return _FDUltimate;
-            } // Запрашиваем данные через DLL - позже сделаем
+            } // Запрашиваем данные через DLL 
             set
             {
                 _FDUltimate = value;
@@ -248,7 +248,7 @@ namespace WPFNX
             {
                 _FDUltimateSpec = CppLib.Dosyagaemost(3, this.IntType, true, X, Y, Z);
                 return _FDUltimateSpec;
-            } // Запрашиваем данные через DLL - позже сделаем
+            } // Запрашиваем данные через DLL
             set
             {
                 _FDUltimateSpec = value;
@@ -290,6 +290,7 @@ namespace WPFNX
                 _type = value;
                 UpdateFD();
                 OnPropertyChanged("Type");
+                OnPropertyChanged("IntType");
             }
         }
         [Ignore]
@@ -325,19 +326,12 @@ namespace WPFNX
 
         void UpdateFD()
         {
-            //OnPropertyChanged("Name");
-            //OnPropertyChanged("Number");
-            //OnPropertyChanged("X");
-            //OnPropertyChanged("Y");
-            //OnPropertyChanged("Z");
             OnPropertyChanged("FDLight");
             OnPropertyChanged("FDFull");
             OnPropertyChanged("FDUltimate");
             OnPropertyChanged("FDLightSpec");
             OnPropertyChanged("FDFullSpec");
             OnPropertyChanged("FDUltimateSpec");
-            //OnPropertyChanged("Type");
-            //OnPropertyChanged("IntType");
         }
         void UpdateXYZ()
         {

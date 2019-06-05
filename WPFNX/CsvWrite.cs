@@ -8,7 +8,8 @@ using System.IO;
 using CsvHelper.Configuration.Attributes;
 using System.Globalization;
 using System.Diagnostics;
-using System.Windows;
+using Microsoft.Win32;
+using System.Collections.ObjectModel;
 
 namespace WPFNX
 {
@@ -54,11 +55,14 @@ namespace WPFNX
     public class CsvWrite
     {
         public static void Write(IEnumerable<OU> OUs)
+        {// указываем путь к файлу csv
+            string pathCsvFile = @"C:\\tmp\tmpDosyag.csv";
+            Write(OUs, pathCsvFile);
+        }
+
+        public static void Write(IEnumerable<OU> OUs, string filename)
         {
-            MessageBox.Show("Я Тут!");
             
-            // указываем путь к файлу csv
-            string pathCsvFile = "C:\\tmpDosyag.csv";
             List<OURec> oURecs = new List<OURec>();
 
             foreach(OU ou in OUs)
@@ -84,18 +88,41 @@ namespace WPFNX
             }
 
             // добавляем тестовые данные, которые будем записывать в csv файл
-            using (StreamWriter streamReader = new StreamWriter(pathCsvFile,false, Encoding.UTF8))
+            using (StreamWriter streamReader = new StreamWriter(filename, false, Encoding.UTF8))
             {
                 using (CsvWriter csvReader = new CsvWriter(streamReader))
                 {
                     // указываем разделитель, который будет использоваться в файле
                     csvReader.Configuration.Delimiter = ";";
-//                    csvReader.Configuration.CultureInfo = CultureInfo.GetCultureInfo("ru-RU");
                     // записываем данные в csv файл
                     csvReader.WriteRecords(oURecs);
                 }
             }
-            Process.Start("C:\\tmpDosyag.csv");
+        }
+
+
+        public static ObservableCollection<OU> Read(string pathCsvFile)
+        {
+
+            IEnumerable<OURec> OURecs;
+            ObservableCollection<OU> New = new ObservableCollection<OU>();
+            using (StreamReader reader = new StreamReader(pathCsvFile, Encoding.UTF8))
+            {
+                using (var csv = new CsvReader(reader))
+                {
+                    // указываем разделитель, который будет использоваться в файле
+                    csv.Configuration.Delimiter = ";";
+                    OURecs = csv.GetRecords<OURec>();
+                    
+                    foreach (OURec item in OURecs)
+                    {
+                        OU ou = new OU(item._number, item._name, item._type, item._x, item._y, item._z);
+                        New.Add(ou);
+                    }
+                    return New;
+                }
+            }
+
 
         }
     }

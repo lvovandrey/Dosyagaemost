@@ -75,6 +75,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -89,13 +90,56 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewFolder1\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="Views\MenuNew.xaml.cs">
+      <DependentUpon>MenuNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OUView.xaml.cs">
+      <DependentUpon>OUView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyViewer.xaml.cs">
+      <DependentUpon>PropertyViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyViewerCombobox.xaml.cs">
+      <DependentUpon>PropertyViewerCombobox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyViewerFloat.xaml.cs">
+      <DependentUpon>PropertyViewerFloat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyViewerFloatLittle.xaml.cs">
+      <DependentUpon>PropertyViewerFloatLittle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyViewerL.xaml.cs">
+      <DependentUpon>PropertyViewerL.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectedOUViewer.xaml.cs">
+      <DependentUpon>SelectedOUViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TableOUs.xaml.cs">
+      <DependentUpon>TableOUs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToolBarNew.xaml.cs">
+      <DependentUpon>ToolBarNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowNew.xaml.cs">
+      <DependentUpon>WindowNew.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AboutWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="CppLib.cs" />
     <Compile Include="CsvWrite.cs" />
-    <Compile Include="DosyagDLLEmulator.cs" />
     <Compile Include="HeightListConverter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -105,12 +149,53 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\MenuNew.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OUView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PropertyViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PropertyViewerCombobox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PropertyViewerFloat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PropertyViewerFloatLittle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PropertyViewerL.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SelectedOUViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TableOUs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ToolBarNew.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WindowNew.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model.cs" />
-    <Compile Include="NewFolder1\App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Nx_Wpf.cs" />
     <Compile Include="OU.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -148,6 +233,57 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\lever.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Export-Excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Measure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Page-White-Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Page-White-Get.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Page-White-Put.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Save-As.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Table-Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Table-Import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PNG\Table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tumbler.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

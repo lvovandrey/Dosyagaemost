@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DosyagWpf.Views
+namespace WPFNX.Views
 {
     /// <summary>
     /// Логика взаимодействия для OUView.xaml
@@ -33,16 +33,16 @@ namespace DosyagWpf.Views
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Uri tmp = new Uri("DosyagWpf;component/Images/PNG/Delete.png",UriKind.Relative);
+            Uri tmp = new Uri(Sets.WPFNXLibDir+"/Images/PNG/Delete.png", UriKind.Absolute);
 
             if (value != null)
             {
                 int val = (int)value;
                 switch (val)
                 {
-                    case 3: { tmp = new Uri("DosyagWpf;component/Images/tumbler.png", UriKind.Relative); break; }
-                    case 1: { tmp = new Uri("DosyagWpf;component/Images/button.png", UriKind.Relative); break; }
-                    case 2: { tmp = new Uri("DosyagWpf;component/Images/lever.png", UriKind.Relative); break; }
+                    case 3: { tmp = new Uri(Sets.WPFNXLibDir + "/Images/tumbler.png", UriKind.Absolute); break; }
+                    case 1: { tmp = new Uri(Sets.WPFNXLibDir + "/Images/button.png", UriKind.Absolute); break; }
+                    case 2: { tmp = new Uri(Sets.WPFNXLibDir + "/Images/lever.png", UriKind.Absolute); break; }
                     default:
                         break;
                 }

@@ -63,22 +63,22 @@ namespace WPFNX
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-          //  MessageBox.Show("А вот тут мы получить должны данные из NX !"); // САБЖ.
+            MessageBox.Show("А вот тут мы получить должны данные из NX !"); // САБЖ.
             this.Hide();//скрываем окно иначе блокируется окно NX
 
             double[] point_coords = new double[3];
-            //if (Nx_Wpf.SelectPoint("Выберите точку на ОУ", ref point_coords))
-            //{
-                
-            //    DataModel.SelectedOU.X = point_coords[0];
-            //    DataModel.SelectedOU.Y = point_coords[1];
-            //    DataModel.SelectedOU.Z = point_coords[2];
-                               
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Cancel clicked!");
-            //}
+            if (Nx_Wpf.SelectPoint("Выберите точку на ОУ", ref point_coords))
+            {
+
+                DataModel.SelectedOU.X = point_coords[0];
+                DataModel.SelectedOU.Y = point_coords[1];
+                DataModel.SelectedOU.Z = point_coords[2];
+
+            }
+            else
+            {
+                MessageBox.Show("Cancel clicked!");
+            }
             this.ShowDialog();//обображаем окно
         }
 
@@ -88,11 +88,12 @@ namespace WPFNX
             this.Hide();
             label_base.Content = "";
             double[] point_coords = new double[3];
-          ////  if (Nx_Wpf.SelectPoint("Выберите базовую точку", ref point_coords))
-          //  {
-          //      label_base.Content = "X:" + point_coords[0].ToString() + " Y:" + point_coords[1].ToString() + " Z:" + point_coords[2].ToString();
-          //      base_point = point_coords;
-          //  }
+            //  if (Nx_Wpf.SelectPoint("Выберите базовую точку", ref point_coords))
+            {
+                label_base.Content = "X:" + point_coords[0].ToString() + " Y:" + point_coords[1].ToString() + " Z:" + point_coords[2].ToString();
+                base_point = point_coords;
+            }
+            //}
             //else
             //{
             //    //label_base.Content = "Cancel clicked!";
@@ -108,6 +109,13 @@ namespace WPFNX
             label_base.Content = "X:" + point_coords[0].ToString() + " Y:" + point_coords[1].ToString() + " Z:" + point_coords[2].ToString();
                 base_point = point_coords;
             this.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            WindowNew windowNew = new WindowNew();
+            windowNew.Show();
+          //  windowNew.DataContext = this.DataContext;
         }
     }
 }

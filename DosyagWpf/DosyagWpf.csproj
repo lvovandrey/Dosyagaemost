@@ -196,7 +196,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\button.png" />
+    <Resource Include="Images\button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\lever.png" />
     <Resource Include="Images\tumbler.png" />
   </ItemGroup>
