@@ -14,7 +14,9 @@ namespace DosyagWpf
     /// По сути это ViewModel
     /// </summary>
     public class Model
-    {
+    {/// <summary>
+    /// 
+    /// </summary>
         public ObservableCollection<OU> OUs { get; set; }
         public OU SelectedOU { get; set; }
         public string Test { get; set; }
